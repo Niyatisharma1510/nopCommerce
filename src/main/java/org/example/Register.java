@@ -43,7 +43,18 @@ public class Register {
         Boolean element = wait.until(ExpectedConditions.urlToBe(url));
         return element;
     }
-
+    public static void waitForVisible(By by)
+    {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        element.getText();
+    }
+    public static void waitForDisappear(By by)
+    {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        Boolean element;
+        element = wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
     protected static WebDriver driver;
     public static void main(String[] args)
     {
@@ -52,10 +63,10 @@ public class Register {
 
         driver.manage().window().fullscreen();
         driver.get("https://demo.nopcommerce.com/");
-       // driver.findElement(By.linkText("Register")).click();
-      //  clickOnElements(By.linkText("Register"));
-        waitForClickable(By.linkText("Register"));
-
+        driver.findElement(By.linkText("Register")).click();
+       //clickOnElements(By.linkText("Register"));
+       // waitForClickable(By.linkText("Register"));
+        //waitForUrlToBe("https://demo.nopcommerce.com/register?returnUrl=%2F");
 
 
         //driver.findElement(By.xpath("//input[@value='F']")).click();
