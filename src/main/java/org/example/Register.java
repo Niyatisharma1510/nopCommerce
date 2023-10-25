@@ -55,6 +55,7 @@ public class Register {
         Boolean element;
         element = wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
+
     protected static WebDriver driver;
     public static void main(String[] args)
     {
